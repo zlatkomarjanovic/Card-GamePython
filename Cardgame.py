@@ -23,3 +23,52 @@ class Deck:
         for suit in suits:
             for rank in ranks: 
                 self.deck.append(Card(suit, rank))
+    
+    def __str__(self): 
+        deck_comp = ""
+        for card in self.deck:
+            deck_comp += "\n" + card.__str__()
+        return "The deck has" + deck_comp
+    
+    def shuffle(self): 
+        random.shuffle(self.deck)
+        
+    def deal(self): 
+        single_card = self.deck.pop()
+        return single_card 
+    
+test_deck = Deck()
+test_deck.shuffle()
+print(test_deck)
+
+class Hand: 
+    def __init__(self): 
+        self.cards = []
+        self.value = 0
+        self.aces = 0
+    
+    def add_card(self,card): 
+        self.card.append(card)
+        self.value += values[card.rank]
+        
+        if card.rank == 'Ace':
+            self.aces += 1
+    
+    def adjust_for_ace(self): 
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -=1
+    
+    test_deck = Deck()
+    test_deck.shuffle()
+    
+    
+    test_player = Hand()
+    pulled_card = test_deck.deal()
+    print(pulled_card)
+    test_player.add_card(pulled_card)
+    print(test_player.value)
+    
+    
+    test_player.add_card(test_deck.deal())
+    test_player.value
